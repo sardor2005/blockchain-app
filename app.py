@@ -3,7 +3,10 @@ import hashlib
 import time
 from collections import OrderedDict
 
-app = Flask(__name__, static_folder='static', template_folder='templates')
+app = Flask(__name__, 
+           template_folder=os.path.join(os.path.dirname(__file__), 'templates'),
+           static_folder=os.path.join(os.path.dirname(__file__), 'static'),
+           static_url_path='/static')
 
 # Хранилище данных
 users = OrderedDict()
